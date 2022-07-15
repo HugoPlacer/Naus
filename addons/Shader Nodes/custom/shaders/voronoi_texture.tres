@@ -193,10 +193,10 @@ void light() {
 
 }
 "
-graph_offset = Vector2( -1245, 434 )
+graph_offset = Vector2( -783.461, 19.2214 )
 nodes/fragment/0/position = Vector2( 240, 480 )
 nodes/fragment/2/node = SubResource( 2 )
-nodes/fragment/2/position = Vector2( -660, 100 )
+nodes/fragment/2/position = Vector2( -640, 60 )
 nodes/fragment/2/size = Vector2( 575, 400 )
 nodes/fragment/2/input_ports = ""
 nodes/fragment/2/output_ports = ""

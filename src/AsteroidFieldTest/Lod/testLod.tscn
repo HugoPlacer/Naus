@@ -1,17 +1,32 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/AsteroidFieldTest/AsteroidField.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/AsteroidFieldTest/Camera.gd" type="Script" id=2]
 [ext_resource path="res://src/AsteroidFieldTest/Lod/AsteroidLod.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Sun/Sun.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/interface/themes/new_theme.tres" type="Theme" id=5]
 [ext_resource path="res://src/AsteroidFieldTest/Lod/testLod.gd" type="Script" id=6]
 
 [sub_resource type="Environment" id=2]
+tonemap_mode = 4
+tonemap_exposure = 0.4
+tonemap_white = 4.47
+auto_exposure_min_luma = 0.4
+glow_enabled = true
+glow_strength = 1.06
+glow_bloom = 1.0
+glow_blend_mode = 1
+glow_bicubic_upscale = true
+glow_high_quality = true
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 6 )
 
 [node name="AsteroidField" parent="." instance=ExtResource( 1 )]
+start_roids = 1
+
+[node name="SizeEdit" parent="AsteroidField" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.331139, 0, 0.00862122 )
 
 [node name="Camera" type="Camera" parent="."]
 far = 5000.0
@@ -48,5 +63,9 @@ theme = ExtResource( 5 )
 text = "Position"
 
 [node name="AsteroidLod" parent="." instance=ExtResource( 3 )]
+
+[node name="Sun" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 102.004, 0, 0 )
+skeleton = NodePath("../AsteroidField")
 
 [editable path="AsteroidField"]
