@@ -43,6 +43,13 @@ func _process(delta : float) -> void:
 			if get_parent().player_id != get_tree().get_network_unique_id():
 				return
 	
+	if owner.dead:
+		for child in get_children():
+			if child.has_method("hide"):
+				child.hide()
+		$DieInfo.show()
+		return
+	
 	#Utilities.canvas_scaler(get_parent().number_of_player, self)
 	
 	if Input.is_key_pressed(KEY_F1):
@@ -183,6 +190,7 @@ func _input(event : InputEvent) -> void:
 
 func update_center(delta):
 	if $Center.visible:
+		crosshair.visible = !owner.input.turboing
 		if not Settings.controller_input:
 			cursor.visible = true
 			cursor.rect_position += mouse_movement * delta * Settings.mouse_sensitivity
@@ -213,3 +221,7 @@ func on_damagable_hit():
 func on_enemy_died():
 	$Center/Crosshair/HitMarkerParts/AnimationPlayer.play("killed")
 	$Center/Crosshair/HitMarkerParts/KillAudio.play()
+
+
+func _on_HealthSystem_die(attacker):
+	$DieInfo.text = "Heu estat mort per " + attacker.name if attacker else "Heu estat mort"
