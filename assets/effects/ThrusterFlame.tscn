@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/effects/ThrusterPropulsion.tres" type="Shader" id=1]
 [ext_resource path="res://assets/effects/ThrusterParticles.tres" type="Shader" id=2]
 [ext_resource path="res://assets/effects/ThrusterFlameShaderController.gd" type="Script" id=3]
-[ext_resource path="res://assets/effects/SpaceEngineEffect.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/effects/SpaceEngineEffect2.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://assets/effects/ThrusterFill.tres" type="Shader" id=5]
 [ext_resource path="res://assets/effects/ThrusterFlameGradient.tres" type="Gradient" id=6]
 
@@ -11,20 +11,27 @@
 gradient = ExtResource( 6 )
 
 [sub_resource type="Gradient" id=67]
+offsets = PoolRealArray( 0, 0.863354 )
+colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1 )
 
 [sub_resource type="GradientTexture" id=68]
 gradient = SubResource( 67 )
+
+[sub_resource type="GradientTexture" id=1]
+gradient = ExtResource( 6 )
 
 [sub_resource type="ShaderMaterial" id=31]
 shader = ExtResource( 1 )
 shader_param/Intensity = 0.5
 shader_param/Degrees = 90.0
-shader_param/Speed = 1.0
-shader_param/Energy = 3.0
+shader_param/Speed = -2.0
+shader_param/Energy = 2.0
 shader_param/TextureUniform = SubResource( 68 )
-shader_param/TextureUniform2 = SubResource( 72 )
+shader_param/TextureUniform2 = SubResource( 1 )
 
 [sub_resource type="Gradient" id=69]
+offsets = PoolRealArray( 0, 0.89441 )
+colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1 )
 
 [sub_resource type="GradientTexture" id=70]
 gradient = SubResource( 69 )
@@ -39,9 +46,9 @@ gradient = SubResource( 60 )
 [sub_resource type="ShaderMaterial" id=64]
 shader = ExtResource( 2 )
 shader_param/Intensity = 0.5
-shader_param/Speed = 1.0
+shader_param/Speed = -2.0
 shader_param/Degrees = 90.0
-shader_param/Energy = 3.0
+shader_param/Energy = 2.0
 shader_param/Particle_Amount = SubResource( 61 )
 shader_param/Length = SubResource( 70 )
 
